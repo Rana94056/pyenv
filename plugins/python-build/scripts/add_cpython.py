@@ -369,8 +369,8 @@ class CPythonAvailableVersionsDirectory(KeyedList[_CPythonAvailableVersionInfo, 
             download_version = packaging.version.Version(m.group("version"))
             if download_version != version:
                 if not refine_mode:
-                    raise ValueError(f"Unexpectedly found a download {name} for {download_version} "
-                                     f"at page {entry.download_page_url} for {version}")
+                    raise ValueError(f"Unexpectedly found a download {name} ({download_version}) "
+                                     f"for {version} at page {entry.download_page_url}")
                 entry_to_fill = additional_versions_found.get_or_create(
                     download_version,
                     download_page_url=entry.download_page_url
